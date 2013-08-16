@@ -9,6 +9,7 @@
 	$website_owner = "John Doe";
 	$url_to_logo = "/indexer/resources/logo.png";
 	$url_to_favicon = "/indexer/resources/favicon.ico";
+	$css_font_face = "@font-face{ font-family: Agency; src: url('/indexer/resources/agency.ttf'), url('/indexer/resources/agency.eot');}";
 	$main_color = "#37B6CE"; // aka background color (you can use any color profile you want (rgb, rgba, hex))
 	$secondary_color = "#FF7C00"; // aka forground color (you can use any color profile you want (rgb, rgba, hex))
 	$font_main_color = "rgb(255,255,255)"; // (you can use any color profile you want (rgb, rgba, hex))
@@ -46,6 +47,9 @@
 	}
 	function getURLtoFavicon(){
 		echo $GLOBALS['url_to_favicon'];
+	}
+	function getCSSfontFace(){
+		echo $GLOBALS['css_font_face'];
 	}
 	function getMainColor(){
 		echo $GLOBALS['main_color'];

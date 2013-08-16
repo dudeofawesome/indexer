@@ -1,11 +1,11 @@
 <?php header("Content-type: text/css; charset: UTF-8"); ?>
 
-@font-face{
+/*@font-face{
 	font-family: Agency;
 	src: url('/indexer/resources/agency.ttf')
-		,url('/indexer/resources/agency.eot'); /* IE9+ */
-}
-
+		,url('/indexer/resources/agency.eot');
+}*/
+<?php getCSSfontFace(); ?>
 
 @media screen and (max-width:500px){
 	.contentLoader { display: none; }
