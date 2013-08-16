@@ -1,3 +1,5 @@
+<?php header("Content-type: text/css; charset: UTF-8"); ?>
+
 @font-face{
 	font-family: Agency;
 	src: url('/indexer/resources/agency.ttf')
@@ -13,14 +15,14 @@
 body{
 	font-family:Agency;
 	font-size:18px;
-	color:rgb(255,255,255);
+	color:<?php getFontMainColor(); ?>;
 	/*text-shadow:1px 2px 3px rgba(255,255,255,0.8),
 			0px 0px 1px rgba(0,0,0,.7);*/
-	background-color:#37B6CE;
+	background-color:<?php getMainColor(); ?>;
 	background-image: url("/indexer/resources/stripe.png");
 }
 a{
-	color:rgb(255,255,255);
+	color:<?php getFontMainColor(); ?>;
 
 	transition:color .3s;
 	-moz-transition:color .3s;
@@ -28,7 +30,7 @@ a{
 	-o-transition:color .3s;
 }
 a:hover{
-	color:rgb(61,255,247);
+	color:<?php getFontSecondaryColor(); ?>;
 }
 header {
 	position: absolute;
@@ -76,7 +78,7 @@ a img {
 .headBar{
 	height: 30px;
 
-	background-color: #FF7C00;
+	background-color: <?php getSecondaryColor(); ?>;
 	box-shadow: 0px 0px 10px rgba(0,0,0,.7);
 }
 .headBar .currentLocation{
@@ -125,7 +127,7 @@ a img {
 	padding: 10px;
 
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
-	background-color: #FF7C00;
+	background-color: <?php getSecondaryColor(); ?>;
 }
 .leftNav .menu .links{
 	position: absolute;
@@ -143,7 +145,7 @@ a img {
 }
 .leftNav .menu .bottom legend{
 	font-weight: bold;
-	color: rgb(255,255,255);
+	color: <?php getFontMainColor(); ?>;
 }
 .leftNav .menu .bottom fieldset{
 	width: 185px;
@@ -209,7 +211,7 @@ a img {
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
 
-	background-color: #FF7C00;
+	background-color: <?php getSecondaryColor(); ?>;
 }
 .contentLoader{
 	position: fixed;
@@ -245,7 +247,7 @@ a img {
 	z-index: 2;
 
 	padding: 10px;
-	background: #37B6CE;
+	background: <?php getMainColor(); ?>;
 	background-image: url("/indexer/resources/stripe.png");
 	background-position: 2px 0px;
 
@@ -266,7 +268,7 @@ a img {
 
 	border-radius: 10px;
 
-	background-color: #FF7C00;
+	background-color: <?php getSecondaryColor(); ?>;
 	box-shadow: 2px 2px 10px rgba(0,0,0,.5) inset, 2px 2px 10px rgba(255,255,255,.5);
 }
 .rotate90CW{

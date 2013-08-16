@@ -9,6 +9,11 @@
 	$website_owner = "John Doe";
 	$url_to_logo = "/indexer/resources/logo.png";
 	$url_to_favicon = "/indexer/resources/favicon.ico";
+	$main_color = "#37B6CE"; // aka background color (you can use any color profile you want (rgb, rgba, hex))
+	$secondary_color = "#FF7C00"; // aka forground color (you can use any color profile you want (rgb, rgba, hex))
+	$font_main_color = "rgb(255,255,255)"; // (you can use any color profile you want (rgb, rgba, hex))
+	$font_secondary_color = "rgb(61,255,247)"; // aka a:hover color color (you can use any color profile you want (rgb, rgba, hex))
+
 	$file_uploading_enabled = true;
 	$file_upload_directory = "/public/";
 	$sidebar_links = array(
@@ -41,6 +46,18 @@
 	}
 	function getURLtoFavicon(){
 		echo $GLOBALS['url_to_favicon'];
+	}
+	function getMainColor(){
+		echo $GLOBALS['main_color'];
+	}
+	function getSecondaryColor(){
+		echo $GLOBALS['secondary_color'];
+	}
+	function getFontMainColor(){
+		echo $GLOBALS['font_main_color'];
+	}
+	function getFontSecondaryColor(){
+		echo $GLOBALS['font_secondary_color'];
 	}
 	function getUploadingEnabled(){
 		return $GLOBALS['file_uploading_enabled'];

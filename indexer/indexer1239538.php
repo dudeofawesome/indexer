@@ -11,7 +11,7 @@
 		<title><?php echo getWebsiteOwner();?></title>
 
 		<link rel='shortcut icon' href=<?php echo getURLtoFavicon();?> >
-		<link rel="stylesheet" type="text/css" href="/indexer/style.css">
+		<link rel="stylesheet" type="text/css" href="/indexer/style.php">
 
 		<script type="text/javascript" src="/indexer/layoutSetup.js"></script>
 		<script type="text/javascript" src="/indexer/previewLoad.js"></script>
