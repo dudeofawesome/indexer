@@ -1,4 +1,5 @@
 <?php header("Content-type: text/css; charset: UTF-8"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php");?>
 
 /*@font-face{
 	font-family: Agency;
