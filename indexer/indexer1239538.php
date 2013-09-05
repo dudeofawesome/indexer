@@ -1,9 +1,12 @@
 <?php
-	//ini_set('display_errors',1); 
-	//error_reporting(E_ALL);
-?>
+	require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php"); 
 
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php");?>
+	session_start();
+	if(!isset($_SESSION['authenticated'])){
+		$_SESSION['authenticated'] = false;
+		echo "nope nope nope";
+	}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -22,6 +25,7 @@
 		<meta name="viewport" content="width=320,user-scalable=false" />
 	</head>
 	<body>
+		<?php if($_SESSION['authenticated']){echo "true true true";} ?>
 		<?php
 			$protectedFolders = "";
 			foreach(getProtectedFolders() as $folder){
@@ -33,7 +37,7 @@
 			var protectedFolders = "<?php echo $protectedFolders;?>".split(",");
 			var directory = window.location.href.split("#")[0].split("http://")[1].split("/")[1] + "/";
 			for(var i = 0; i < protectedFolders.length; i++){
-				if(protectedFolders[i] + "/" == "/" + directory){
+				if(protectedFolders[i] + "/" == "/" + directory && !<?php if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){ echo "true"; } else{ echo "false"; } ?>){
 					//request password
 					pass = prompt('Please input your password');
 				}

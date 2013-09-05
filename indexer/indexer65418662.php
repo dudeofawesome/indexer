@@ -1,11 +1,12 @@
-<?php
-	//ini_set('display_errors',1); 
-	//error_reporting(E_ALL);
-?>
+<?php 
+	require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php");
 
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php");?>
-
-<?php
+	session_start();
+	if(!isset($_SESSION['authenticated'])){
+		$_SESSION['authenticated'] = false;
+		echo "nope nope nope";
+	}
+	
 	$current_url = explode("#", $_POST['url'])[0];
 
 	if($current_url!="/"){
@@ -18,11 +19,15 @@
 				$needPassword = true;
 			}
 		}
-		$permissionToView = true;
-		if($needPassword){
-			if($_POST['pass'] != getServerPassword()){
-				$permissionToView = false;
+		$permissionToView = false;
+		if($needPassword && isset($_SESSION['authenticated']) && !$_SESSION['authenticated']){
+			if($_POST['pass'] == getServerPassword()){
+				$_SESSION['authenticated'] = true;
+				$permissionToView = true;
 			}
+		}
+		else if($_SESSION['authenticated']){
+			$permissionToView = true;
 		}
 		
 		if($permissionToView){
