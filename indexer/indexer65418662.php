@@ -20,13 +20,16 @@
 			}
 		}
 		$permissionToView = false;
-		if($needPassword && isset($_SESSION['authenticated']) && !$_SESSION['authenticated']){
-			if($_POST['pass'] == getServerPassword()){
+		if($needPassword){
+			if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){
+				$permissionToView = true;
+			}
+			else if($_POST['pass'] == getServerPassword()){
 				$_SESSION['authenticated'] = true;
 				$permissionToView = true;
 			}
 		}
-		else if($_SESSION['authenticated']){
+		else{
 			$permissionToView = true;
 		}
 		
