@@ -113,7 +113,7 @@
 							<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="26214400" />
 							<div>
 								<label for="fileselect">Must be &le; 25mb</label>
-								<input type="file" id="fileselect" name="uploadedfile[]" multiple />
+								<input type="file" id="fileselect" name="uploadedfile[]" multiple style="width: 187px;"/>
 							</div>
 							<div id="submitbutton">
 								<button type="submit">Upload Files</button>
