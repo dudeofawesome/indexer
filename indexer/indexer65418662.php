@@ -4,7 +4,7 @@
 	session_start();
 	if(!isset($_SESSION['authenticated'])){
 		$_SESSION['authenticated'] = false;
-		echo "nope nope nope";
+		echo "Please log in";
 	}
 	
 	$current_url = explode("#", $_POST['url'])[0];
@@ -74,14 +74,14 @@
 					$extension = explode(".", $file);
 					if($extension[1] != "preview"){
 						if(file_exists(getServerRoot() . $directory . $extension[0] . ".preview.jpg")){
-							echo "<a href='#' onclick=\"updateFile('".$extension[0].".preview.jpg','".$extension[1]."');\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>".$file."</a><br />";
+							echo "<a href='".$file."' onclick=\"if(event.which == 1){updateFile('".$extension[0].".preview.jpg','".$file."','".$extension[1]."'); return false;}\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>".$file."</a><br />";
 						}
 						else{
 							if($directory == "public//"){
-								echo "<a href='#' onclick=\"updateFile('".$file."');\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>" . $file . "</a><a href='#'><span id='" . $file . "-btn' class='deleteBtn' onclick='confirmDelete(this);'></span></a><span id='" . $file . "' class='confirmDeleteControls'>&nbsp;&nbsp;<a href='#' onclick='cancelDelete(this.parentNode);'>no</a> / <a href='#' onclick='deleteFile(\"/indexer/deletePublicFile.php?url=" . explode("/",$file)[0] . "\")'>yes</a></span><br />";
+								echo "<a href='".$file."' onclick=\"if(event.which == 1){updateFile('".$file.",".$file."'); return false;}\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>" . $file . "</a><a href='#'><span id='" . $file . "-btn' class='deleteBtn' onclick='confirmDelete(this);'></span></a><span id='" . $file . "' class='confirmDeleteControls'>&nbsp;&nbsp;<a href='#' onclick='cancelDelete(this.parentNode);'>no</a> / <a href='#' onclick='deleteFile(\"/indexer/deletePublicFile.php?url=" . explode("/",$file)[0] . "\")'>yes</a></span><br />";
 							}
 							else{
-								echo "<a href='#' onclick=\"updateFile('".$file."');\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>" . $file . "</a><br />";
+								echo "<a href='".$file."' onclick=\"if(event.which == 1){updateFile('".$file."','".$file."'); return false;}\" onmouseover='genQRcode(\"" . $current_url . $file . "\")' onmouseout='removeQRcode()'>" . $file . "</a><br />";
 							}
 						}
 					}

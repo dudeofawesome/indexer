@@ -1,4 +1,4 @@
-function updateFile(file,originalExt){
+function updateFile(file,realFile,originalExt){
 
 	//hide all elements
 	document.getElementById("imgContent").style.display="none";
@@ -23,6 +23,7 @@ function updateFile(file,originalExt){
 		if(extension.toLowerCase() == ".jpg" || extension.toLowerCase() == ".jpeg" || 
 			extension.toLowerCase() == ".png" || extension.toLowerCase() == ".ico" ||
 			extension.toLowerCase() == ".gif"){
+			document.getElementById("imgContent").src = "";
 			document.getElementById("imgContent").src = file;
 			if(hasPreview){
 				document.getElementById("imgLink").href = extensionArray[0] + "." + originalExt;
@@ -71,6 +72,8 @@ function updateFile(file,originalExt){
 			var href = window.location.href.split("#");
 			window.location.href = href[0] + file;
 		}
+
+		window.history.pushState({"html":realFile,"pageTitle":realFile},"", "#" + realFile);
 	}
 	else{
 		var href = window.location.href.split("#");

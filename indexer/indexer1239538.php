@@ -4,7 +4,7 @@
 	session_start();
 	if(!isset($_SESSION['authenticated'])){
 		$_SESSION['authenticated'] = false;
-		echo "nope nope nope";
+		echo "Please log in";
 	}
 ?>
 
@@ -25,7 +25,7 @@
 		<meta name="viewport" content="width=320,user-scalable=false" />
 	</head>
 	<body>
-		<?php if($_SESSION['authenticated']){echo "true true true";} ?>
+		<?php if($_SESSION['authenticated']){echo "You are logged in";} ?>
 		<?php
 			$protectedFolders = "";
 			foreach(getProtectedFolders() as $folder){
@@ -139,6 +139,13 @@
 		<div id="contentLoader" class="contentLoader insetBox">
 			<a id="imgLink" href="#">
 				<img id="imgContent" src="" class="imgContent" />
+				<script type="text/javascript">
+					if(window.location.href.split("#")[1] != "" && window.location.href.split("#")[1] != undefined){
+						document.getElementById("imgContent").src = window.location.href.split("#")[1];
+						document.getElementById("imgLink").href = window.location.href.split("#")[1];
+						document.getElementById("imgContent").style.display = "inline";
+					}
+				</script>
 			</a>
 			<video id="videoContent" width="640" height="480" controls="controls" class="vidContent" style="display:none;">
 				Your browser does not support the video tag.
