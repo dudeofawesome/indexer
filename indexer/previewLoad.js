@@ -82,6 +82,7 @@ function updateFile(file,realFile,originalExt){
 }
 
 function genQRcode (_file) {
+	$("#watermark").stop(true,true);
 	$("#imgIcon").stop(true,true);
 	$("#imgIcon").qrcode({
 		render: 'div',
@@ -91,12 +92,15 @@ function genQRcode (_file) {
 		color: '#000',
 		text: _file
 	});
+	$("#watermark").fadeOut(500);
 	$("#imgIcon").fadeIn(500);
 }
 
 function removeQRcode () {
 	$("#imgIcon").stop(true,true);
+	$("#watermark").stop(true,true);
 	$("#imgIcon").fadeOut(500,function () {
 		$("#imgIcon").empty();
 	});
+	$("#watermark").fadeIn(500);
 }

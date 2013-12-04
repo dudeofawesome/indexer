@@ -70,6 +70,10 @@ a img {
 .content .confirmDeleteControls{
 	display: none;
 }
+/*.content a .fileLink:hover ~ .watermark{
+	opacity: 0;
+	filter: Alpha(opacity=0);
+}*/
 .copyright{
 	position: absolute;
 
@@ -248,9 +252,6 @@ a img {
 	z-index: 2;
 
 	padding: 10px;
-	background: <?php getMainColor(); ?>;
-	background-image: url("/indexer/resources/stripe.png");
-	background-position: 2px 0px;
 
 	display: none;
 }
