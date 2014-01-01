@@ -22,7 +22,7 @@
 		<script type='text/javascript' src='/indexer/deletePublicFile.js'></script>
 		<script type="text/javascript" src="/indexer/jquery.qrcode-0.3.min.js"></script>
 
-		<meta name="viewport" content="width=320,user-scalable=false" />
+		<meta name="viewport" content="width=device-width,user-scalable=false" />
 	</head>
 	<body>
 		<?php if($_SESSION['authenticated']){echo "You are logged in";} ?>
