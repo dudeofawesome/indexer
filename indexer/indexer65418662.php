@@ -1,10 +1,10 @@
 <?php 
+	session_start();
 	require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php");
 
-	session_start();
 	if(!isset($_SESSION['authenticated'])){
 		$_SESSION['authenticated'] = false;
-		echo "Please log in";
+		// echo "Please log in";
 	}
 	
 	$current_url = explode("#", $_POST['url'])[0];
@@ -23,10 +23,12 @@
 		if($needPassword){
 			if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']){
 				$permissionToView = true;
+				echo "<a href='/indexer/logout.php'>Logout</a><br /><br />";
 			}
 			else if($_POST['pass'] == getServerPassword()){
 				$_SESSION['authenticated'] = true;
 				$permissionToView = true;
+				echo "<a href='/indexer/logout.php'>Logout</a><br /><br />";
 			}
 		}
 		else{

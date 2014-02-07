@@ -1,7 +1,7 @@
 <?php
+	session_start();
 	require($_SERVER['DOCUMENT_ROOT'] . "/indexer/config/settings.php"); 
 
-	session_start();
 	if(!isset($_SESSION['authenticated'])){
 		$_SESSION['authenticated'] = false;
 		echo "Please log in";
