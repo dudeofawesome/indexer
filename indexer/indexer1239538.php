@@ -133,7 +133,7 @@
 		</div>
 
 		<div id="copyright" class="copyright rotate90CW" style="bottom: 83px;left: 499px;">
-		  <a href="http://orleans.pl" style="text-decoration:none;">&copy;2013 Louis Orleans</a>
+		  <a href="http://0rleans.com" style="text-decoration:none;">&copy;2013 Louis Orleans</a>
 		</div>
 
 		<div id="contentLoader" class="contentLoader insetBox">
